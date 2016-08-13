@@ -1,0 +1,136 @@
+
+config.status,320
+as_fn_error ()as_fn_error143,4123
+as_fn_set_status ()as_fn_set_status158,4525
+as_fn_exit ()as_fn_exit166,4691
+as_fn_unset ()as_fn_unset176,4822
+  as_fn_append ()as_fn_append193,5320
+  as_fn_arith ()as_fn_arith210,5734
+as_fn_mkdir_p ()as_fn_mkdir_p306,7921
+as_fn_executable_p ()as_fn_executable_p361,9091
+
+configure,1536
+as_fn_success () { as_fn_return 0; }as_fn_success180,5482
+as_fn_failure () { as_fn_return 1; }as_fn_failure181,5519
+as_fn_ret_success () { return 0; }as_fn_ret_success182,5556
+as_fn_ret_failure () { return 1; }as_fn_ret_failure183,5591
+as_fn_unset ()as_fn_unset291,9356
+as_fn_set_status ()as_fn_set_status300,9511
+as_fn_exit ()as_fn_exit308,9677
+as_fn_mkdir_p ()as_fn_mkdir_p318,9849
+as_fn_executable_p ()as_fn_executable_p366,10896
+  as_fn_append ()as_fn_append382,11407
+  as_fn_arith ()as_fn_arith399,11821
+as_fn_error ()as_fn_error411,12190
+ac_fn_cxx_try_compile ()ac_fn_cxx_try_compile1420,42994
+ac_fn_c_try_compile ()ac_fn_c_try_compile1458,44115
+ac_fn_cxx_try_cpp ()ac_fn_cxx_try_cpp1496,45229
+ac_fn_cxx_check_header_mongrel ()ac_fn_cxx_check_header_mongrel1535,46503
+ac_fn_cxx_try_run ()ac_fn_cxx_try_run1625,50167
+ac_fn_cxx_check_header_compile ()ac_fn_cxx_check_header_compile1667,51609
+ac_fn_cxx_try_link ()ac_fn_cxx_try_link1697,52468
+ac_fn_cxx_check_type ()ac_fn_cxx_check_type1744,54094
+ac_fn_cxx_check_func ()ac_fn_cxx_check_func1797,55260
+   function prototypes and stuff, but not '\xHH' hex character constants.prototypes3204,95587
+as_fn_error ()as_fn_error4609,136897
+as_fn_set_status ()as_fn_set_status4624,137299
+as_fn_exit ()as_fn_exit4632,137465
+as_fn_unset ()as_fn_unset4642,137596
+  as_fn_append ()as_fn_append4659,138094
+  as_fn_arith ()as_fn_arith4676,138508
+as_fn_mkdir_p ()as_fn_mkdir_p4772,140695
+as_fn_executable_p ()as_fn_executable_p4827,141865
+
+Makefile,822
+LIBDIR = c-libLIBDIR1,0
+SRC = c-srcSRC2,15
+SHARED_OBJECT_FILES = shared_object_filesSHARED_OBJECT_FILES3,27
+STATIC_OBJECT_FILES = static_object_filesSTATIC_OBJECT_FILES4,69
+CONFIGURE_CACHE = autom4te.cacheCONFIGURE_CACHE5,111
+CONFIGURE_LOG = config.logCONFIGURE_LOG6,144
+CONFIGURE_STATUS = config.statusCONFIGURE_STATUS7,171
+WEBKITFLTKHS_BUILDINFO = webkitfltkhs.buildinfoWEBKITFLTKHS_BUILDINFO8,204
+INSTALL_SH = install-shINSTALL_SH9,252
+ACLOCAL_M4 = aclocal.m4ACLOCAL_M410,276
+COMPILE = compileCOMPILE11,300
+MISSING = missingMISSING12,318
+DIRS = $(SRC)DIRS13,336
+CLEANUP = $(LIBDIR) $(SHARED_OBJECT_FILES) $(STATIC_OBJECT_FILES) $(CONFIGURE_CACHE) $(CONFIGURE_LOG) $(CONFIGURE_STATUS) $(CONFIGURE_SCAN) $(WEBKITFLTKHS_BUILDINFO) $(INSTALL_SH) $(ACLOCAL_M4) $(COMPILE) $(MISSING)CLEANUP14,350
+
+c-src/webview_C.h,402
+#define __WEBVIEW_C____WEBVIEW_C__2,22
+class callbackStoringWebView : public webview {callbackStoringWebView10,200
+  webviewCallback* loadCb;loadCb19,634
+  webviewCallback* faviconCb;faviconCb20,661
+  webviewCallback* statusCb;statusCb21,691
+  webviewProgressCallback* progressCb;progressCb22,720
+  webviewSiteCallback* siteCb;siteCb23,759
+  webviewErrorCallback* errorCb;errorCb24,790
+
+c-src/webkit_C.cpp,0
+
+c-src/webkit_C.h,405
+#define __WEBKIT_C____WEBKIT_C__2,21
+class CallbackStore {CallbackStore9,179
+  static void interceptErrorCallback(webview* v, const char * err, const bool sub){interceptErrorCallback11,210
+  static webview* interceptPopupFuncCallback(const char* s){interceptPopupFuncCallback14,357
+  static webkitSSLErrorCallback* errorCb;errorCb17,477
+  static webkitPopupFunc* popupFuncCb;popupFuncCb18,519
+
+c-src/Makefile,671
+FLTKCONFIG=fltk-configFLTKCONFIG1,0
+CXX = $(shell $(FLTKCONFIG) --cxx) -Wall -DINTERNAL_LINKAGE -g -Icpp -I../CXX2,23
+CXXSHARED = $(CXX)CXXSHARED3,98
+CXXSTATIC = $(CXX) -staticCXXSTATIC4,117
+CPPFILES= \CPPFILES6,145
+LIBNAME = libwebkitfltkcLIBNAME10,190
+OBJECTS = $(CPPFILES:.cpp=.o)OBJECTS11,215
+LIBDIR = ../c-libLIBDIR12,245
+SHARED_OBJECT_FILES = ../shared_object_filesSHARED_OBJECT_FILES13,263
+STATIC_OBJECT_FILES = ../static_object_filesSTATIC_OBJECT_FILES14,308
+	SHARED_EXT=dylibSHARED_EXT17,385
+	SONAME_FLAGS=-dynamiclib -install_nameSONAME_FLAGS18,403
+	SHARED_EXT=soSHARED_EXT20,448
+	SONAME_FLAGS= -shared -Wl,-sonameSONAME_FLAGS21,463
+
+c-src/Fl_ExportMacros.h,258
+#define __FL_EXPORT_H__FL_EXPORT_H2,22
+#undef EXPORTEXPORT5,59
+#define EXPORT EXPORT7,80
+  #define FL_EXPORT_C(FL_EXPORT_C11,149
+    #define FL_EXPORT_C(FL_EXPORT_C14,248
+    #define FL_EXPORT_C(FL_EXPORT_C16,348
+    #define _cdecl_cdecl19,436
+
+c-src/webview_C.cpp,1744
+void callbackStoringWebView::interceptLoad(webview* v) {interceptLoad3,42
+void callbackStoringWebView::interceptFavicon(webview* v){interceptFavicon6,152
+void callbackStoringWebView::interceptStatus(webview* v){interceptStatus9,267
+void callbackStoringWebView::interceptProgress(webview* v, float f){interceptProgress12,380
+void callbackStoringWebView::interceptSiteChanging(webview* v, const char* url){interceptSiteChanging15,507
+void callbackStoringWebView::interceptError(webview* v, const char* err){interceptError18,652
+void callbackStoringWebView::loadStateChangedCB(webviewCallback* c) {loadStateChangedCB24,950
+void callbackStoringWebView::progressChangedCB(webviewProgressCallback* c) {progressChangedCB28,1112
+void callbackStoringWebView::faviconChangedCB(webviewCallback* c) {faviconChangedCB32,1288
+void callbackStoringWebView::statusChangedCB(webviewCallback* c) {statusChangedCB36,1452
+void callbackStoringWebView::siteChangingCB(webviewSiteCallback* c) {siteChangingCB40,1612
+void callbackStoringWebView::errorCB(webviewErrorCallback* c) {errorCB44,1778
+void callbackStoringWebView::runLoadCallback(){runLoadCallback52,2123
+void callbackStoringWebView::runFaviconCallback(){runFaviconCallback55,2200
+void callbackStoringWebView::runStatusCallback(){runStatusCallback58,2283
+void callbackStoringWebView::runProgressCallback(float f){runProgressCallback61,2364
+void callbackStoringWebView::runSiteChangingCallback(const char* url){runSiteChangingCallback64,2459
+void callbackStoringWebView::runErrorCallback(const char* err){runErrorCallback67,2564
+callbackStoringWebView::callbackStoringWebView(int x, int y, int w, int h, bool noGui) : webview(x,y,w,h,noGui){}callbackStoringWebView73,2787
+
+c-src/types.h,832
+#define __TYPES____TYPES__2,18
+typedef void*  webviewC;webviewC4,37
+typedef void  (webviewCallback)(void*);webviewCallback5,62
+typedef void  (webviewProgressCallback)(void*,float);webviewProgressCallback6,102
+typedef void  (webviewHistoryCallback)(const char* url, const char* title, const time_t when);webviewHistoryCallback7,156
+typedef void  (webviewSiteCallback)(void*,const char*);webviewSiteCallback8,251
+typedef void  (webviewErrorCallback)(void*, const char*);webviewErrorCallback9,307
+typedef void  (webviewBindEventCallback)(const char *name, const char *id, const char *cssclass, const char *value);webviewBindEventCallback11,428
+typedef void  (webkitSSLErrorCallback)(void*, const char *, const int sub);webkitSSLErrorCallback12,545
+typedef void* (webkitPopupFunc)(const char*);webkitPopupFunc13,621

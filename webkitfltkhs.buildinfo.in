@@ -1,0 +1,2 @@
+ld-options: -lwebkitfltk -lz -pthread -lxslt -lxml2 -ldl -lsqlite3  @ICUFLAGS@ -lharfbuzz -lharfbuzz-icu  -lfreetype -lfontconfig -lcairo  -lpng -ljpeg -lrt -lcurl -lssl -lcrypto -lglib-2.0  @FLTKLIBS@ -lstdc++
+include-dirs: @FLTK_HOME@

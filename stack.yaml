@@ -1,0 +1,6 @@
+flags: {}
+packages:
+- '.'
+extra-deps:
+- fltkhs-0.4.0.9
+resolver: lts-6.10

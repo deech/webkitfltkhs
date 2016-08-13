@@ -1,0 +1,23 @@
+LIBDIR = c-lib
+SRC = c-src
+SHARED_OBJECT_FILES = shared_object_files
+STATIC_OBJECT_FILES = static_object_files
+CONFIGURE_CACHE = autom4te.cache
+CONFIGURE_LOG = config.log
+CONFIGURE_STATUS = config.status
+WEBKITFLTKHS_BUILDINFO = webkitfltkhs.buildinfo
+INSTALL_SH = install-sh
+ACLOCAL_M4 = aclocal.m4
+COMPILE = compile
+MISSING = missing
+DIRS = $(SRC)
+CLEANUP = $(LIBDIR) $(SHARED_OBJECT_FILES) $(STATIC_OBJECT_FILES) $(CONFIGURE_CACHE) $(CONFIGURE_LOG) $(CONFIGURE_STATUS) $(CONFIGURE_SCAN) $(WEBKITFLTKHS_BUILDINFO) $(INSTALL_SH) $(ACLOCAL_M4) $(COMPILE) $(MISSING)
+.SILENT:
+.PHONY: src
+src:
+	cd $(SRC); $(MAKE) all
+clean:
+	for f in $(CLEANUP); do\
+	 	echo "=== removing $$f ===";\
+	 	  rm -rf $$f; \
+	done

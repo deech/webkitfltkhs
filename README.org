@@ -1,0 +1,39 @@
+* Introduction
+  ~webkitfltkhs~ is a complete Haskell binding to the [[https://github.com/clbr/webkitfltk][webkitfltk]], the [[http://fltk.org][FLTK]] port
+  of [[https://webkit.org/][Webkit]] and overlays [[http://hackage.haskell.org/package/fltkhs][fltkhs]], the Haskell bindings to the rest to the FLTK
+  library. This allows the user write native applications in pure Haskell in
+  which Webkit is simply another widget. The [[https://github.com/deech/webkitfltkhs/blob/master/app/TestApp.hs][example application]] bundled with
+  this library demonstrates this by pulling up Google in a native FLTK window
+  when launched.
+
+  Please also consider this binding *alpha*! It is very lightly documented and
+  has been tested only on Linux since that is my primary platform. OSX /may/
+  work, Windows certainly will not. Support for all platforms is planned for the
+  future. I don't forsee too many difficulties with OSX, but I fully expect
+  Windows will be a trail of beers. Help is always appreciated!
+
+* Installation
+  The hardest part of building this widget is installing [[https://github.com/clbr/webkitfltk][webkitfltk]] itself. Once
+  the core FLTK library is [[https://github.com/deech/fltkhs#quick-install][installed]] the webkitfltk [[https://github.com/clbr/webkitfltk#building][installations instructions]]
+  seem to work quite well, at least on the latest Ubuntu and Debian. But
+  unfortunately building takes a *long* time. On my 16Gb RAM, i7 machine it took
+  3+ hours and created a 1Gb static library.
+
+  Once that is completed the rest is pretty straightforward. First clone this
+  repo and at the root of this directory do ~stack build~, take a break for
+  about 10 minutes and upon your return doing ~stack exec webkitfltkhs-testapp~
+  should hopefully bring up a window that automatically loads "http://www.google.com".
+
+  If you feel like building the docs, ~stack haddock~ will also generate the
+  nice type signatures and a hierarchy diagram just like for the widgets in the
+  [[http://hackage.haskell.org/package/fltkhs-0.4.0.9/docs/Graphics-UI-FLTK-LowLevel-Valuator.html#g:2][core library]].
+
+
+* Motivation
+  This binding exists because firstly because I needed a Webkit widget for
+  personal reasons. But this is also the first non-trivial test of one of
+  [[http://hackage.haskell.org/package/fltkhs-0.4.0.9/docs/Graphics-UI-FLTK-LowLevel-FLTKHS.html#g:2][flkths's design goals]] which was being able to seamlessly add existing widgets
+  without having to mess with the core library and having it all just work
+  together with the minimum of fuss. I'm happy to say that it seems to be
+  working quite well. [[https://github.com/deech/webkitfltkhs/blob/master/app/TestApp.hs#L5][One extra line]] is all it takes to include Webkit as a
+  widget.
