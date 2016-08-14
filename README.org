@@ -24,10 +24,12 @@
   about 10 minutes and upon your return doing ~stack exec webkitfltkhs-testapp~
   should hopefully bring up a window that automatically loads "http://www.google.com".
 
-  If you feel like building the docs, ~stack haddock~ will also generate the
-  nice type signatures and a hierarchy diagram just like for the widgets in the
-  [[http://hackage.haskell.org/package/fltkhs-0.4.0.9/docs/Graphics-UI-FLTK-LowLevel-Valuator.html#g:2][core library]].
+* Documentation
 
+  Since this isn't on Hackage I've included the Haddocks in this repo for [[http://htmlpreview.github.io/?https://raw.githubusercontent.com/deech/webkitfltkhs/master/doc/index.html][online
+  preview]]. But if you feel like building the docs yourself, ~stack haddock~ will
+  also generate the nice type signatures and a hierarchy diagram just like for
+  the widgets in the [[http://hackage.haskell.org/package/fltkhs-0.4.0.9/docs/Graphics-UI-FLTK-LowLevel-Valuator.html#g:2][core library]].
 
 * Motivation
   This binding exists because firstly because I needed a Webkit widget for

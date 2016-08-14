@@ -1,0 +1,367 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" /><title>Graphics.UI.FLTK.LowLevel.FLTKHS</title><link href="ocean.css" rel="stylesheet" type="text/css" title="Ocean" /><script src="haddock-util.js" type="text/javascript"></script><script type="text/javascript">//<![CDATA[
+window.onload = function () {pageLoad();setSynopsis("mini_Graphics-UI-FLTK-LowLevel-FLTKHS.html");};
+//]]>
+</script></head><body><div id="package-header"><ul class="links" id="page-menu"><li><a href="src/Graphics-UI-FLTK-LowLevel-FLTKHS.html">Source</a></li><li><a href="index.html">Contents</a></li><li><a href="doc-index.html">Index</a></li></ul><p class="caption">fltkhs-0.4.0.9: FLTK bindings</p></div><div id="content"><div id="module-header"><table class="info"><tr><th>Safe Haskell</th><td>None</td></tr><tr><th>Language</th><td>Haskell2010</td></tr></table><p class="caption">Graphics.UI.FLTK.LowLevel.FLTKHS</p></div><div id="table-of-contents"><p class="caption">Contents</p><ul><li><a href="#g:1">Motivation</a></li><li><a href="#g:2">Goals</a></li><li><a href="#g:3">Obstacles</a></li><li><a href="#g:4">Installation</a><ul><li><a href="#g:5">Linux &amp; *BSD</a></li><li><a href="#g:6">Mac (Yosemite &amp; El Capitan)</a></li><li><a href="#g:7">Installation (Windows 64-bit)</a></li></ul></li><li><a href="#g:8">Demos</a></li><li><a href="#g:9">Getting Started</a></li><li><a href="#g:10">Fluid Support</a></li><li><a href="#g:11">Stack Traces</a></li><li><a href="#g:12">API Guide</a></li><li><a href="#g:13">Slow Compilation Issues</a></li><li><a href="#g:14">Running in the REPL</a></li><li><a href="#g:15">Core Types</a></li><li><a href="#g:16">Widgets</a></li><li><a href="#g:17">Machinery for static dispatch</a></li><li><a href="#g:18">Association of widgets and functions</a></li></ul></div><div id="synopsis"><p id="control.syn" class="caption expander" onclick="toggleSection('syn')">Synopsis</p><ul id="section.syn" class="hide" onclick="toggleSection('syn')"><li class="src short">module <a href="Graphics-UI-FLTK-LowLevel-Fl_Types.html">Graphics.UI.FLTK.LowLevel.Fl_Types</a></li><li class="src short">module <a href="Graphics-UI-FLTK-LowLevel-Adjuster.html">Graphics.UI.FLTK.LowLevel.Adjuster</a></li><li class="src short">module <a href="Graphics-UI-FLTK-LowLevel-Bitmap.html">Graphics.UI.FLTK.LowLevel.Bitmap</a></li><li class="src short">module <a href="Graphics-UI-FLTK-LowLevel-Box.html">Graphics.UI.FLTK.LowLevel.Box</a></li><li class="src short">module <a href="Graphics-UI-FLTK-LowLevel-Browser.html">Graphics.UI.FLTK.LowLevel.Browser</a></li><li class="src short">module <a href="Graphics-UI-FLTK-LowLevel-Button.html">Graphics.UI.FLTK.LowLevel.Button</a></li><li class="src short">module <a href="Graphics-UI-FLTK-LowLevel-CheckButton.html">Graphics.UI.FLTK.LowLevel.CheckButton</a></li><li class="src short">module <a href="Graphics-UI-FLTK-LowLevel-Choice.html">Graphics.UI.FLTK.LowLevel.Choice</a></li><li class="src short">module <a href="Graphics-UI-FLTK-LowLevel-Clock.html">Graphics.UI.FLTK.LowLevel.Clock</a></li><li class="src short">module <a href="Graphics-UI-FLTK-LowLevel-CopySurface.html">Graphics.UI.FLTK.LowLevel.CopySurface</a></li><li class="src short">module <a href="Graphics-UI-FLTK-LowLevel-Counter.html">Graphics.UI.FLTK.LowLevel.Counter</a></li><li class="src short">module <a href="Graphics-UI-FLTK-LowLevel-Dial.html">Graphics.UI.FLTK.LowLevel.Dial</a></li><li class="src short">module <a href="Graphics-UI-FLTK-LowLevel-DoubleWindow.html">Graphics.UI.FLTK.LowLevel.DoubleWindow</a></li><li class="src short">module <a href="Graphics-UI-FLTK-LowLevel-Draw.html">Graphics.UI.FLTK.LowLevel.Draw</a></li><li class="src short">module <a href="Graphics-UI-FLTK-LowLevel-FillDial.html">Graphics.UI.FLTK.LowLevel.FillDial</a></li><li class="src short">module <a href="Graphics-UI-FLTK-LowLevel-FillSlider.html">Graphics.UI.FLTK.LowLevel.FillSlider</a></li><li class="src short">module <a href="Graphics-UI-FLTK-LowLevel-GlWindow.html">Graphics.UI.FLTK.LowLevel.GlWindow</a></li><li class="src short">module <a href="Graphics-UI-FLTK-LowLevel-Group.html">Graphics.UI.FLTK.LowLevel.Group</a></li><li class="src short">module <a href="Graphics-UI-FLTK-LowLevel-HorFillSlider.html">Graphics.UI.FLTK.LowLevel.HorFillSlider</a></li><li class="src short">module <a href="Graphics-UI-FLTK-LowLevel-HorNiceSlider.html">Graphics.UI.FLTK.LowLevel.HorNiceSlider</a></li><li class="src short">module <a href="Graphics-UI-FLTK-LowLevel-HorSlider.html">Graphics.UI.FLTK.LowLevel.HorSlider</a></li><li class="src short">module <a href="Graphics-UI-FLTK-LowLevel-HorValueSlider.html">Graphics.UI.FLTK.LowLevel.HorValueSlider</a></li><li class="src short">module <a href="Graphics-UI-FLTK-LowLevel-Image.html">Graphics.UI.FLTK.LowLevel.Image</a></li><li class="src short">module <a href="Graphics-UI-FLTK-LowLevel-ImageSurface.html">Graphics.UI.FLTK.LowLevel.ImageSurface</a></li><li class="src short">module <a href="Graphics-UI-FLTK-LowLevel-Input.html">Graphics.UI.FLTK.LowLevel.Input</a></li><li class="src short">module <a href="Graphics-UI-FLTK-LowLevel-Output.html">Graphics.UI.FLTK.LowLevel.Output</a></li><li class="src short">module <a href="Graphics-UI-FLTK-LowLevel-IntInput.html">Graphics.UI.FLTK.LowLevel.IntInput</a></li><li class="src short">module <a href="Graphics-UI-FLTK-LowLevel-FileInput.html">Graphics.UI.FLTK.LowLevel.FileInput</a></li><li class="src short">module <a href="Graphics-UI-FLTK-LowLevel-LightButton.html">Graphics.UI.FLTK.LowLevel.LightButton</a></li><li class="src short">module <a href="Graphics-UI-FLTK-LowLevel-LineDial.html">Graphics.UI.FLTK.LowLevel.LineDial</a></li><li class="src short">module <a href="Graphics-UI-FLTK-LowLevel-MenuPrim.html">Graphics.UI.FLTK.LowLevel.MenuPrim</a></li><li class="src short">module <a href="Graphics-UI-FLTK-LowLevel-MenuButton.html">Graphics.UI.FLTK.LowLevel.MenuButton</a></li><li class="src short">module <a href="Graphics-UI-FLTK-LowLevel-MenuItem.html">Graphics.UI.FLTK.LowLevel.MenuItem</a></li><li class="src short">module <a href="Graphics-UI-FLTK-LowLevel-NiceSlider.html">Graphics.UI.FLTK.LowLevel.NiceSlider</a></li><li class="src short">module <a href="Graphics-UI-FLTK-LowLevel-OverlayWindow.html">Graphics.UI.FLTK.LowLevel.OverlayWindow</a></li><li class="src short">module <a href="Graphics-UI-FLTK-LowLevel-Pixmap.html">Graphics.UI.FLTK.LowLevel.Pixmap</a></li><li class="src short">module <a href="Graphics-UI-FLTK-LowLevel-Positioner.html">Graphics.UI.FLTK.LowLevel.Positioner</a></li><li class="src short">module <a href="Graphics-UI-FLTK-LowLevel-Progress.html">Graphics.UI.FLTK.LowLevel.Progress</a></li><li class="src short">module <a href="Graphics-UI-FLTK-LowLevel-RadioLightButton.html">Graphics.UI.FLTK.LowLevel.RadioLightButton</a></li><li class="src short">module <a href="Graphics-UI-FLTK-LowLevel-RepeatButton.html">Graphics.UI.FLTK.LowLevel.RepeatButton</a></li><li class="src short">module <a href="Graphics-UI-FLTK-LowLevel-ReturnButton.html">Graphics.UI.FLTK.LowLevel.ReturnButton</a></li><li class="src short">module <a href="Graphics-UI-FLTK-LowLevel-Roller.html">Graphics.UI.FLTK.LowLevel.Roller</a></li><li class="src short">module <a href="Graphics-UI-FLTK-LowLevel-RoundButton.html">Graphics.UI.FLTK.LowLevel.RoundButton</a></li><li class="src short">module <a href="Graphics-UI-FLTK-LowLevel-Scrollbar.html">Graphics.UI.FLTK.LowLevel.Scrollbar</a></li><li class="src short">module <a href="Graphics-UI-FLTK-LowLevel-SelectBrowser.html">Graphics.UI.FLTK.LowLevel.SelectBrowser</a></li><li class="src short">module <a href="Graphics-UI-FLTK-LowLevel-SimpleCounter.html">Graphics.UI.FLTK.LowLevel.SimpleCounter</a></li><li class="src short">module <a href="Graphics-UI-FLTK-LowLevel-SingleWindow.html">Graphics.UI.FLTK.LowLevel.SingleWindow</a></li><li class="src short">module <a href="Graphics-UI-FLTK-LowLevel-Slider.html">Graphics.UI.FLTK.LowLevel.Slider</a></li><li class="src short">module <a href="Graphics-UI-FLTK-LowLevel-Spinner.html">Graphics.UI.FLTK.LowLevel.Spinner</a></li><li class="src short">module <a href="Graphics-UI-FLTK-LowLevel-MenuBar.html">Graphics.UI.FLTK.LowLevel.MenuBar</a></li><li class="src short">module <a href="Graphics-UI-FLTK-LowLevel-SysMenuBar.html">Graphics.UI.FLTK.LowLevel.SysMenuBar</a></li><li class="src short">module <a href="Graphics-UI-FLTK-LowLevel-Tabs.html">Graphics.UI.FLTK.LowLevel.Tabs</a></li><li class="src short">module <a href="Graphics-UI-FLTK-LowLevel-Table.html">Graphics.UI.FLTK.LowLevel.Table</a></li><li class="src short">module <a href="Graphics-UI-FLTK-LowLevel-TableRow.html">Graphics.UI.FLTK.LowLevel.TableRow</a></li><li class="src short">module <a href="Graphics-UI-FLTK-LowLevel-Timer.html">Graphics.UI.FLTK.LowLevel.Timer</a></li><li class="src short">module <a href="Graphics-UI-FLTK-LowLevel-ToggleButton.html">Graphics.UI.FLTK.LowLevel.ToggleButton</a></li><li class="src short">module <a href="Graphics-UI-FLTK-LowLevel-Tree.html">Graphics.UI.FLTK.LowLevel.Tree</a></li><li class="src short">module <a href="Graphics-UI-FLTK-LowLevel-TreeItem.html">Graphics.UI.FLTK.LowLevel.TreeItem</a></li><li class="src short">module <a href="Graphics-UI-FLTK-LowLevel-TreePrefs.html">Graphics.UI.FLTK.LowLevel.TreePrefs</a></li><li class="src short">module <a href="Graphics-UI-FLTK-LowLevel-Valuator.html">Graphics.UI.FLTK.LowLevel.Valuator</a></li><li class="src short">module <a href="Graphics-UI-FLTK-LowLevel-ValueInput.html">Graphics.UI.FLTK.LowLevel.ValueInput</a></li><li class="src short">module <a href="Graphics-UI-FLTK-LowLevel-ValueOutput.html">Graphics.UI.FLTK.LowLevel.ValueOutput</a></li><li class="src short">module <a href="Graphics-UI-FLTK-LowLevel-ValueSlider.html">Graphics.UI.FLTK.LowLevel.ValueSlider</a></li><li class="src short">module <a href="Graphics-UI-FLTK-LowLevel-Widget.html">Graphics.UI.FLTK.LowLevel.Widget</a></li><li class="src short">module <a href="Graphics-UI-FLTK-LowLevel-Window.html">Graphics.UI.FLTK.LowLevel.Window</a></li><li class="src short">module <a href="Graphics-UI-FLTK-LowLevel-Wizard.html">Graphics.UI.FLTK.LowLevel.Wizard</a></li><li class="src short">module <a href="Graphics-UI-FLTK-LowLevel-TextSelection.html">Graphics.UI.FLTK.LowLevel.TextSelection</a></li><li class="src short">module <a href="Graphics-UI-FLTK-LowLevel-TextBuffer.html">Graphics.UI.FLTK.LowLevel.TextBuffer</a></li><li class="src short">module <a href="Graphics-UI-FLTK-LowLevel-TextDisplay.html">Graphics.UI.FLTK.LowLevel.TextDisplay</a></li><li class="src short">module <a href="Graphics-UI-FLTK-LowLevel-TextEditor.html">Graphics.UI.FLTK.LowLevel.TextEditor</a></li><li class="src short">module <a href="Graphics-UI-FLTK-LowLevel-NativeFileChooser.html">Graphics.UI.FLTK.LowLevel.NativeFileChooser</a></li><li class="src short">module <a href="Graphics-UI-FLTK-LowLevel-Tile.html">Graphics.UI.FLTK.LowLevel.Tile</a></li><li class="src short">module <a href="Graphics-UI-FLTK-LowLevel-Pack.html">Graphics.UI.FLTK.LowLevel.Pack</a></li><li class="src short">module <a href="Graphics-UI-FLTK-LowLevel-Scrolled.html">Graphics.UI.FLTK.LowLevel.Scrolled</a></li><li class="src short">module <a href="Graphics-UI-FLTK-LowLevel-Ask.html">Graphics.UI.FLTK.LowLevel.Ask</a></li><li class="src short">module <a href="Graphics-UI-FLTK-LowLevel-ColorChooser.html">Graphics.UI.FLTK.LowLevel.ColorChooser</a></li><li class="src short">module <a href="Graphics-UI-FLTK-LowLevel-FileBrowser.html">Graphics.UI.FLTK.LowLevel.FileBrowser</a></li><li class="src short">module <a href="Graphics-UI-FLTK-LowLevel-JPEGImage.html">Graphics.UI.FLTK.LowLevel.JPEGImage</a></li><li class="src short">module <a href="Graphics-UI-FLTK-LowLevel-RGBImage.html">Graphics.UI.FLTK.LowLevel.RGBImage</a></li><li class="src short">module <a href="Graphics-UI-FLTK-LowLevel-BMPImage.html">Graphics.UI.FLTK.LowLevel.BMPImage</a></li><li class="src short">module <a href="Graphics-UI-FLTK-LowLevel-GIFImage.html">Graphics.UI.FLTK.LowLevel.GIFImage</a></li><li class="src short">module <a href="Graphics-UI-FLTK-LowLevel-XBMImage.html">Graphics.UI.FLTK.LowLevel.XBMImage</a></li><li class="src short">module <a href="Graphics-UI-FLTK-LowLevel-XPMImage.html">Graphics.UI.FLTK.LowLevel.XPMImage</a></li><li class="src short">module <a href="Graphics-UI-FLTK-LowLevel-PNGImage.html">Graphics.UI.FLTK.LowLevel.PNGImage</a></li><li class="src short">module <a href="Graphics-UI-FLTK-LowLevel-PNMImage.html">Graphics.UI.FLTK.LowLevel.PNMImage</a></li><li class="src short">module <a href="Graphics-UI-FLTK-LowLevel-Dispatch.html">Graphics.UI.FLTK.LowLevel.Dispatch</a></li><li class="src short">module <a href="Graphics-UI-FLTK-LowLevel-Hierarchy.html">Graphics.UI.FLTK.LowLevel.Hierarchy</a></li></ul></div><div id="interface"><h1 id="g:1">Motivation</h1><div class="doc"><p>This library aims to make it easy for users to build native apps that work portably across platforms.</p><p>The original author is also very interested the renewed interested in user
+ interfaces in the programming community, whether the various kinds of
+ functional reactive programming, meta-object protocol UI's, or something like
+ React.js.</p><p>The hope is that a low-cost hassle-free way of getting a UI up and running
+ without having to deal with browser, authentication and compilation issues
+ will make it more fun to play around with these great ideas using Haskell.</p><h2>Why a native toolkit?</h2><p>Even in this era of web interfaces it is still
+ useful to be able to make native apps. They are usually faster and have fewer
+ security issues.</p><h2>Why FLTK?</h2><ul><li>The original author chose FLTK because it was small enough that one person could bind the whole thing in an initial
+ pass. Larger toolkits like QT, although way slicker, would require many man-years of effort.</li><li>FLTK is quite featureful</li><li>FLTK is mature and maintained, the project is about 20 years old and author has had good experiences with the community</li><li>FLTK comes with a simple but quite useful GUI builder, <a href="https://en.wikipedia.org/wiki/FLUID">Fluid</a> which is now able to
+   generate Haskell code. See the `Fluid Support` section for more details.</li></ul><h2>What about HsQML/WxHaskell/Gtk2Hs?</h2><p>These are all great projects and produce really nice UI's, but they all fail
+ at least one of criterion listed under the <strong>Goals</strong> section below.</p><p>To the author's knowledge, as of the first quarter of 2016, no other package
+ in the Haskell ecosystem meets all those constraints.</p></div><h1 id="g:2">Goals</h1><div class="doc"><p>The goals of this library are to provide a low level API to the <a href="http://fltk.org">FLTK</a> that:</p><ol><li>provides full coverage of the toolkit allowing the user to write GUI's in pure Haskell.</li><li>feels like it has polymorphic dispatch, meaning a single function dispatches to the right implementation based on the type of widget it is given</li><li>is <em>not</em> monolithic, meaning new widgets can be incorporated the user's application without needing to recompile this library</li><li>is easy to install. This library has a minimum of dependencies and <a href="http://fltk.org">FLTK</a> itself compiles cleanly on most architectures</li><li>allows the user to produce statically linked binaries with no external dependencies</li><li>includes a lot of complete working demos so that the user can get up and running faster. (see note below)</li><li>comes with GUI builder support to alleviate the tedium of laying out widgets by hand</li></ol><p>$FluidSupport</p><p>This package also comes with a utility (fltkhs-fluidtohs) that takes a user
+ interface generated using the <a href="https://en.wikipedia.org/wiki/FLUID">Fluid GUI builder</a>
+ that ships with FLTK and generates Haskell code.</p><p>Now the user can drag and drop widgets into place instead of having to
+ calculate coordinates and sizes by hand. Additionally arbitrary Haskell code
+ can be inserted into Fluid interfaces allowing user to do most of callback
+ wiring directly from Fluid.</p><p>The quickest way to get started is to download the
+ <a href="https://github.com/deech/fltkhs-fluid-hello-world">Fluid/Haskell project template</a>.
+ The <code>Setup.hs</code> that comes with the skeleton is configured to use
+ the 'fltkhs-fluidtohs' utility to automatically convert any Fluid in <code>src</code>
+ directory into a Haskell module of the same name during the preprocess step.
+ This means using Fluid in a FLTKHS project is as simple as creating a Fluid
+ interface and running 'cabal build' or 'cabal install'.</p><p>Additionally the <a href="http://hackage.haskell.org/package/fltkhs-fluid-demos">fltkhs-fluid-demos</a> package
+ comes with a number of demos that show off how Fluid integrates with FLTKS.</p></div><h1 id="g:3">Obstacles</h1><div class="doc"><p>This section attempts to briefly highlight some possible dealbreakers users
+ might want to know about before proceeding. To be clear, building and deploying
+ portable static application binaries works well on all platforms which is why the
+ library is considered usable. And most of these issues are being aggressively
+ addressed but in the interests of full disclosure ...</p><h2>Look &amp; Feel (All users)</h2><p>The look and feel of FLTK apps can be charitably described as <em>retro</em>. And since
+ FLTK has no support for theming it is also baked in. FLTK was designed for the
+ embedded domain and trades off slickness for speed, portability and
+ binary size. This is unlikely to change.</p><h2>Compile Times (All users)</h2><p>Currently a dense app (~ 160-180 widgets crammed into the same window) takes
+ 9-12 seconds to compile on a 32GB quad-core machine. Surprisingly it only goes up
+ to 10-15 seconds on a 8GB machine indicating that GHC pegs one processor and RAM
+ does not matter. Educated guess, most of the time is being spent traversing type-level lists
+ and chasing down orphan instances. The hope is that this will all go away once GHC 8 has settled
+ in and all the type-level gymnastics can been replaced with OverloadedRecordFields.</p><h2>GHCi (Linux, *BSD &amp; OSX Yosemite)</h2><p>The GHC 7.10.x series has an unfortunate
+ <a href="https://ghc.haskell.org/trac/ghc/ticket/10568">regression</a> that causes GHCi to
+ crash when loading the shared library that contains the C bindings to the C++
+ API. The REPL loads fine in GHC 7.8.x. This means that each FLTKHS app needs a
+ special GHC environment just for running the REPL. This is achieved by bundling
+ another Stack file (arbitrarily called 'stack-repl.yaml') with sample apps
+ and skeletons specially for loading an app into GHCi but also means that users
+ have to do the following to load a GUI app into the REPL:</p><pre>&gt; STACK_YAML=stack-repl.yaml stack ghci ...
+</pre><p>Furthermore once an app is launched via the REPL closing the main app window
+ brings the REPL back to a prompt as it should but does not go away. The window
+ stays around ghosted for the life of the session. The user has to `:quit` GHCi in
+ order to get rid of it. So while the REPL is still useful for querying functions etc.
+ and trying things out it leaves a lot of trash behind. Hopefully the fix is simply a
+ case of the author knowing how GHCi and the FFI interact.</p><h2>GHCi + Stack (OSX El Capitan)</h2><p>Running FLTKHS in GHCi via Stack on El Capitan is broken. The reason is that
+ the <code>Setup.hs</code> that comes with FLTKHS requires Cabal-1.2.x. So before running the repl we need to do:</p><pre>&gt; STACK_YAML=stack-repl.yaml stack setup --upgrade-cabal
+</pre><p>This breaks on El Capitan with an error:</p><pre>&gt; Setup: /usr/bin/ar: permission denied
+</pre><p>This is a known <a href="https://github.com/haskell/cabal/issues/2653">bug</a> and unfortunately the
+ <a href="https://ghc.haskell.org/trac/ghc/blog/weekly20150721#MacOSXElCapitansupport">workaround</a> is
+ pretty horrific. Barring that there is no hope for FLTKHS and GHCi on El Capitan.</p><p>To see why it's necessary to use `stack-repl.yaml` please see the previous section
+ &quot;GHCi (Linux, *BSD &amp; OSD Yosemite)&quot;.</p><h2>GHC 7.10.3 And Beyond (Windows only)</h2><p>FLTKHS does not work with GHC 7.10.3 on Windows. Period. GHC 7.10.2 and 7.8.4 on
+ Windows work fine. The problem is the MinGW environment that comes bundled with
+ GHC 7.10.3 has brought to a light and unfortunate
+ <a href="https://github.com/haskell/c2hs/issues/157">bug</a> in the `language-c` package
+ that C2HS depends on. Until this is fixed FLTKHS will not build.</p><p>The workaround is bundling yet another special Stack file (arbitrarily called
+ &quot;stack-windows.yaml&quot;) that allows Windows users to run FLTKHS with GHC 7.10.2.
+ Most importantly this pins all Windows users to 7.10.2 until the issue is
+ resolved and as an added inconvenience all Stack commands in Windows have to be
+ prefixed with the cheesy:</p><pre>&gt; STACK_YAML= stack-windows.yaml stack ...
+</pre><h2>GHCi (Windows only)</h2><p>GHCi does not work with FLTKHS on Windows at all. At least on Windows 7, attempting
+ load an app into the REPL generates a weird error message about not being able to
+ find `uuid.dll`.</p><p>Hopefully this is just an issue of the author not understand GHCi on Windows and
+ will be resolved quickly.</p></div><h1 id="g:4">Installation</h1><h2 id="g:5">Linux &amp; *BSD</h2><div class="doc"><p>The steps are:</p><ul><li>Make sure to have OpenGL installed</li><li>Download &amp; install <a href="http://docs.haskellstack.org/en/stable/README/#how-to-install">Stack</a></li><li>Download &amp; install <a href="http://www.fltk.org/software.php?VERSION=1.3.3&amp;FILE=fltk/1.3.3/fltk-1.3.3-source.tar.gz">FLTK 1.3.3</a></li><li>Download &amp; install the <a href="https://github.com/deech/fltkhs-hello-world/archive/master.tar.gz">FLTKHS hello world skeleton</a></li><li>Verify the install by running `fltkhs-hello-world`</li></ul><h2>Download &amp; Install Stack</h2><p>Pick the <a href="http://docs.haskellstack.org/en/stable/README/#how-to-install">Stack installer</a> that matches your distribution and install according the instructions.</p><h2>Download &amp; Install FLTK-1.3.3</h2><p>Please make sure to only download version
+ <a href="http://www.fltk.org/software.php?VERSION=1.3.3&amp;FILE=fltk/1.3.3/fltk-1.3.3-source.tar.gz">FLTK 1.3.3</a>.
+ It should build and install smoothly with the standard:</p><pre>&gt; ./configure --enable-shared
+&gt; make
+&gt; sudo make install
+</pre><p>If you are customizing the <code>configure</code> step it is important to at least enable shared libraries, OpenGL and Cairo like so:</p><pre>&gt; ./configure --enable-shared --enable-gl
+</pre><p>If you didn't install FLTK from source you can use the 'fltk-config' tool to ensure that version 1.3.3 is installed:</p><pre>&gt; fltk-config --version
+1.3.3
+</pre><p>Additionally the FLTK headers should be in the include path and, along with
+ the standard FLTK libraries, <code>fltk_images</code>, and <code>fltk_gl</code>. You will also need
+ the <code>make</code>, <code>autoconf</code>, and <code>autoheader</code> tools to build the Haskell bindings.</p><p>The reason we install from source is that some package managers seem to be
+ behind on versions (as of this writing Ubuntu 14.04 is still on 1.3.2) and
+ others put the headers and libraries in a non-standard locations which will
+ cause the Haskell bindings to throw compilation errors.</p><h2>Download &amp; Install the FLTKHS Hello World Skeleton</h2><h3>Downloading Without Git</h3><p>If <code>git</code> is not installed download the latest version of the fltkhs-hello-world application skeleton from <a href="https://github.com/deech/fltkhs-hello-world/archive/master.tar.gz">here</a></p><p>Rename it:</p><pre>&gt; mv fltkhs-hello-world-master.tar.gz fltkhs-hello-world.tar.gz
+</pre><p>Extract and enter the archive:</p><pre>&gt; tar -zxvf fltkhs-hello-world.tar.gz
+</pre><h3>Downloading With Git</h3><p>If <code>git</code> is available:</p><pre>&gt; git clone <a href="http://github.com/deech/fltkhs-hello-world">http://github.com/deech/fltkhs-hello-world</a>
+</pre><h3>Building</h3><p>Build it with Stack:</p><pre>&gt; cd fltkhs-hello-world
+&gt; stack setup
+&gt; stack install
+</pre><p><strong>Note:</strong> If the <code>install</code> step produces a flood of `undefined reference` errors
+ please ensure that you have the right version of FLTK (1.3.3) installed and
+ that the headers are in the expected locations. It seems as though some
+ package managers put the libraries and headers in non-standard places so it
+ is best to build from source.</p><h2>Verify The Install</h2><p>Test that the build completed successfully by invoking incredibly unimpressive</p><pre>&gt; stack exec fltkhs-hello-world
+</pre></div><h2 id="g:6">Mac (Yosemite &amp; El Capitan)</h2><div class="doc"><p>Unfortunately Mac version older than El Capitan and Yosemite are not supported.</p><p>The general steps are:</p><ul><li>Brew Install Stack</li><li>Brew Install FLTK-1.3.3 (Yosemite)</li><li>Brew Install FLTK-1.3.3 (El Capitan)</li><li>Download &amp; install the <a href="https://github.com/deech/fltkhs-hello-world/archive/master.tar.gz">FLTKHS hello world skeleton</a></li><li>Verify the install by running `fltkhs-hello-world`</li></ul><h2>Brew Install Stack</h2><p>This should be as simple as:</p><pre>&gt; brew install haskell-stack
+</pre><h2>Brew Install FLTK-1.3.3 (Yosemite)</h2><pre>&gt; brew install autoconf
+&gt; brew install fltk
+</pre><p>Unfortunately <code>autoconf</code> is required to build FLTKHS but has been removed
+ for the default XCode install since Yosemite so it is required here.</p><h2>Brew Install FLTK-1.3.3 (El Capitan)</h2><pre>&gt; brew install --devel fltk
+</pre><p>Unfortunately the version of Clang bundled with El Capitan does not compile the stable FLTK-1.3.3.
+ This installs the as-yet unreleased development version. Although FLTKHS only support 1.3.3
+ it seems to work.</p><h2>Download &amp; Install the FLTKHS Hello World Skeleton</h2><h3>Downloading Without Git</h3><p>If <code>git</code> is not installed download the latest version of the fltkhs-hello-world application skeleton from <a href="https://github.com/deech/fltkhs-hello-world/archive/master.tar.gz">here</a></p><p>Rename it:</p><pre>&gt; cd /Users/&lt;username&gt;/Downloads/
+&gt; mv fltkhs-hello-world-master.tar.gz fltkhs-hello-world.tar.gz
+</pre><p>Extract the archive:</p><pre>&gt; tar -zxvf fltkhs-hello-world.tar.gz
+</pre><h3>Downloading With Git</h3><p>If <code>git</code> is available:</p><pre>&gt; git clone <a href="http://github.com/deech/fltkhs-hello-world">http://github.com/deech/fltkhs-hello-world</a>
+</pre><h3>Building</h3><p>Build it with Stack:</p><pre>&gt; cd fltkhs-hello-world
+&gt; stack setup
+&gt; stack install
+</pre><h2>Verify The Install</h2><p>Test that the build completed successfully by invoking incredibly unimpressive</p><pre>&gt; stack exec fltkhs-hello-world
+</pre></div><h2 id="g:7">Installation (Windows 64-bit)</h2><div class="doc"><p>Note: Currently this package only works on 64-bit Windows.</p><p>This install guide has been tested on Windows 7 64-bit with 8GB of RAM.</p><p>The general steps involved are:</p><ul><li>Install <a href="http://repo.msys2.org/distrib/x86_64/msys2-x86_64-20150916.exe">MSYS2</a></li><li>Install <a href="http://www.cmake.org/files/v3.2/cmake-3.2.1-win32-x86.exe">CMake</a></li><li>Install <code>make</code> via MSYS2.</li><li>Install <a href="https://www.stackage.org/stack/windows-x86_64-installer">Stack</a></li><li>Download the <a href="https://github.com/deech/fltkhs-hello-world/archive/master.tar.gz">FLTKHS hello world skeleton</a></li><li>Download &amp; compile <a href="http://www.fltk.org/software.php?VERSION=1.3.3&amp;FILE=fltk/1.3.3/fltk-1.3.3-source.tar.gz">FLTK 1.3.3</a></li><li>Build &amp; install the FLTKHS hello world skeleton project.</li><li>Verify the install by running `fltkhs-hello-world`</li></ul><p>This install process is certainly not smooth and there are a number of steps
+ that the user find mysterious and wonder why it is necessary. Each step below
+ starts off with the instructions, followed by a sentence or two that explains
+ why it is necessary.</p><h2>Install MSYS2</h2><p>MSYS2 installers are available
+ <a href="http://repo.msys2.org/distrib/x86_64/msys2-x86_64-20150916.exe">here</a>. Just
+ clicking through the installer wizard should be sufficient.</p><p>MSYS2 provides a much nicer development environment compared to the standard
+ Windows CMD prompt. Additionally the install process needs some tools that are
+ easy to install via <code>pacman</code>, the package manager that ships with MSYS2.</p><h2>Install CMake</h2><p>Simply click through the
+ <a href="http://www.cmake.org/files/v3.2/cmake-3.2.1-win32-x86.exe">CMake</a> installer with
+ the default options. Once this process is complete the <code>cmake</code> executable should
+ be available at the MSYS2 prompt:</p><pre>&gt; cmake --version
+cmake version 3.2.1
+</pre><p>On Windows, CMake is used to generate Makefiles. Yes, CMake is available via
+ <code>pacman</code> but unfortunately that version (as of this writing) does not have the
+ &quot;MSYS Makefiles&quot; generator required by the install process.</p><h2>Install GNU Make</h2><p>The following should just work at the MSYS prompt:</p><pre>&gt; pacman -S make
+</pre><p>GNU Make is required to build both FLTK and the C files in this package.</p><h2>Install Stack</h2><p>The default installation of
+ <a href="https://www.stackage.org/stack/windows-x86_64-installer">Stack</a> should also just
+ work.</p><h2>Download the FLTKHS Hello World Skeleton</h2><p>The latest version of the skeleton is available
+ <a href="https://github.com/deech/fltkhs-hello-world/archive/master.tar.gz">here</a>.</p><p>Extract it via MSYS as follows:</p><pre>&gt; pacman -S tar
+&gt; pacman -S gzip
+&gt; cd &lt;your-download-location&gt; # This is usually /C/Users/&lt;username&gt;/Downloads
+&gt; tar -zxvf master.tar.gz
+&gt; mv fltkhs-hello-world-master fltkhs-hello-world
+</pre><p>There should now be a directory called 'fltkhs-hello-world' in the current
+ directory. We will need the path to this directory for the next step.</p><p>Why is a skeleton project necessary? In the <code>stack</code> world simply installing a
+ library globally does not work since each package is pinned down to a resolver,
+ GHC version etc. So in order to build this package we need to build and install
+ a package that depends on it. This skeleton is also the preferred way to get
+ started with a plain FLKTHS project, so two birds with one stone and all that ...</p><h2>Download &amp; compile FLTK-1.3.3</h2><p>Please make sure to only download version
+ <a href="http://www.fltk.org/software.php?VERSION=1.3.3&amp;FILE=fltk/1.3.3/fltk-1.3.3-source.tar.gz">FLTK 1.3.3</a>.</p><p>If you haven't already installed <code>tar</code> and <code>gzip</code> at the MSYS prompt do:</p><pre>&gt; pacman -S tar
+&gt; pacman -S gzip
+</pre><p>Extract the archive:</p><pre>&gt; cd &lt;your-download-location&gt; # This is usually /C/Users/&lt;username&gt;/Downloads
+&gt; tar -zxvf fltk-1.3.3-source.tar.gz
+</pre><p>Then descend into the source directory:</p><pre>&gt; cd fltkh-1.3.3-source
+</pre><p>Make a build directory to hold the generated CMake files:</p><pre>&gt; mkdir build
+</pre><p>Descend into the <code>build</code> directory:</p><pre>&gt; cd build
+</pre><p>And run <code>cmake</code> via <code>stack</code>:</p><pre>&gt; STACK_YAML=&lt;path-to-hello-world-skeleton&gt;/stack-windows.yaml stack exec cmake -- -DOPTION_BUILD_SHARED_LIBS=On .. -G &quot;MSYS Makefiles&quot;
+</pre><p>If you are confused about the <code>STACK_YAML</code> environment variable please see the &quot;GHC 7.10.3 And Beyond (Windows Only)&quot; in the <a href="Obstacles.html">Obstacles</a> section above.</p><p>Running the rest of the command via 'stack exec' gives <code>cmake</code> access to the C/C++ compilers bundled with GHC.</p><p>Please note the `..` after `-DOPTION_BUILD_SHARED_LIBS=On` in the command.
+ This is important because it tells CMake to build using the CMake specification
+ found in the parent directory.</p><p>Once these steps have been completed you should be able to compile the source:</p><pre>&gt; make
+</pre><p>Each compile step may spit out a scary looking warning about a pointer cast,
+ but this can be safely ignored. In the logic that sets up callbacks, FLTK casts
+ a <code>long</code> argument to a '(void *)'. It can be ignored because it doesn't seem to
+ break anything.</p><p>Compiling and linking on an 8GB machine seems to take about 5-6 minutes.</p><p>Also, the final demo may fail to compile and complain about a symbol being
+ redefined. This is again an issue with MinGW and can be safely ignored.</p><p>Now it is necessary to define the <code>FLTK_HOME</code> environment variable so this package knows where to look for header and library files:</p><pre>&gt; export FLTK_HOME=&lt;path-to-the-FLTK-root-directory&gt;
+</pre><p>Why install from scratch? The user might have noticed that <code>fltk</code> is
+ available via <code>pacman</code> and wonder why we are building it ourselves and setting
+ some arbitrary environment variable to point to the location of the headers and
+ libraries. The issue is that for some reason CMake can't see the header files
+ and libraries when installed via <code>pacman</code>. The linker throws weird errors about
+ types being defined in two places. The issue magically disappears when
+ installing from scratch and it's pretty easy to do. It's not ideal and we're
+ working on removing this step but for now this is the workaround.</p><h2>Install this package</h2><p>At this point return to the directory containing the skeleton FLTKHS
+ application. If it was left in the <code>Downloads</code> folder this should get back to
+ it:</p><pre>&gt; cd /C/Users/&lt;username&gt;/Downloads/fltkhs-hello-world
+</pre><p>Now we can to build it:</p><pre>&gt; STACK_YAML=stack-windows.yaml stack setup
+&gt; STACK_YAML=stack-windows.yaml stack install
+</pre><p>If you are confused about the <code>STACK_YAML</code> environment variable please see the &quot;GHC 7.10.3 And Beyond (Windows Only)&quot; in the <a href="Obstacles.html">Obstacles</a> section above.</p><p><strong>Note</strong>: Installing FLTKHS takes a *long* time, almost 15 minutes on the
+ Windows 7, 8GB RAM test machine. The install will just sit at the <code>configure</code>
+ and <code>build</code> step with no feedback. This is happening because 1. the MinGW C/C++
+ compiler are way slower than gcc/g++ and 2. the C2HS preprocess step seems to
+ take at least 3x as long on Windows. You only have to do this once (hopefully).
+ Please be patient.</p><h2>Verify The Install</h2><p>If all goes well there should be an incredibly unimpressive executable 'fltkhs-hello-world' in the <code>stack</code> path. It can be invoked like:</p><pre>&gt; STACK_YAML=stack-windows.yaml stack exec fltkhs-hello-world
+</pre><p>If you are confused about the <code>STACK_YAML</code> environment variable please see the &quot;GHC 7.10.3 And Beyond (Windows Only)&quot; in the <a href="Obstacles.html">Obstacles</a> section above.</p></div><h1 id="g:8">Demos</h1><div class="doc"><p><strong>Update</strong>: As of 0.4.0.7 the <a href="http://github.com/deech/fltkhs-demos">FLTKHS demos</a> and the
+ <a href="http://github.com/deech/fltkhs-fluid-demos">FLUID demos</a> will only be updated on Github.
+ It is a chore to keep the versions of the demos on Hackage in sync with the proper version
+ of <a href="http://hackage.haskell.org/package/fltkhs">FLTKHS</a> and Stack makes them easier
+ to install (and play with ) than with Cabal.</p><p><strong>Update</strong>: As of version 0.4.0.1 all the demos have been moved to their own
+ package <a href="http://hackage.haskell.org/package/fltkhs-demos">fltkhs-demos</a>. This speeds
+ up installation of this package significantly and also allows the examples to
+ be run interactively with `cabal repl`. This was an issue pre-0.4.0.1 because
+ the REPL needed to link against the C library containing the C++ bindings and
+ was having trouble finding it because it was just created by the Cabal build
+ step but not yet installed. This seems like a better solution than hacking
+ <code>Setup.hs</code> to make the library visible.</p><p>There are currently two sets of FLTKHS demos, the ones that are part of the
+ <a href="http://hackage.haskell.org/package/fltkhs-demos">fltkhs-demos</a> package and ones that
+ show off <a href="http://hackage.haskell.org/package/fltkhs-fluid-demos">Fluid</a>
+ support.</p><p>Please see the README in the <a href="http://hackage.haskell.org/package/fltkhs-demos">fltkhs-demos</a> package for more information.</p></div><h1 id="g:9">Getting Started</h1><div class="doc"><p>It is assumed that by this point the user has successfully installed this
+ library and demos in <a href="http://hackage.haskell.org/package/fltkhs-demos">fltkhs-demos</a> (see
+ above).</p><h1>Quick Start</h1><p>The quickest way to get started is to the download the
+ <a href="http://github.com/deech/fltkhs-hello-world">FLTKHS project skeleton</a>. It is a
+ simple `hello-world` program that shows the basics of widget creation and
+ callbacks. The project's Cabal file comes pre-configured with the options
+ necessary to produce a statically-linked executable so a simple 'cabal
+ configure &amp;&amp; cabal build' should result in an 'fltkhs-hello-world' executable
+ in the <code>dist</code> directory.</p><p>Other demos that ship with this package show more complicated usage of the API.</p><p>Since the API is a low-level binding, code using it takes on the imperative
+ style of the underlying toolkit. Fortunately it should look pretty familiar
+ to those who have used object-oriented GUI toolkits before.</p></div><h1 id="g:10">Fluid Support</h1><h1 id="g:11">Stack Traces</h1><div class="doc"><p>In a traditional callback-heavy API such as FLTKHS null pointers happen which
+ is why FLTKHS supports partial stack traces. All FLTK functions throw an
+ error along with a stack trace when given a null <code><a href="Graphics-UI-FLTK-LowLevel-Fl_Types.html#t:Ref">Ref</a></code>.</p><p>For pre-7.10 GHCs stack traces will only be shown if the
+ <a href="https://wiki.haskell.org/Debugging#General_usage">'xc'</a> flag is used when
+ compiling FLTKHS.</p><p>If compiled with GHC &gt; 7.10 a partial stack trace is transparently available
+ to the user. The recently minted
+ <a href="https://hackage.haskell.org/package/base-4.8.1.0/docs/GHC-Stack.html#g:3">'CallStack'</a>
+ implicit parameter is used to get a trace of the function that
+ made the offending call along with a file name and line number. So, for
+ example, in the following code:</p><pre>buttonCb :: Ref Button -&gt; IO ()
+buttonCb b' = do
+  FL.deleteWidget b'
+  l' &lt;- getLabel b'
+  ...
+
+main :: IO ()
+main = do
+ window &lt;- windowNew ...
+ begin window
+ b' &lt;- buttonNew ...
+ setCallback b' buttonCb
+ ...
+</pre><p>a button is placed inside a window in the main method but the first time it is clicked the callback will delete it and then try
+ the extract the label from the null <code><a href="Graphics-UI-FLTK-LowLevel-Fl_Types.html#t:Ref">Ref</a></code>.
+ The resulting stack trace will look something like:</p><pre>Ref does not exist. ?loc, called at src/Graphics/UI/FLTK/LowLevel/Fl_Types.chs:395:58 in fltkh_Cx8029B5VOwKjdT0OwMERC:Graphics.UI.FLTK.LowLevel.Fl_Types
+  toRefPtr, called at src/Graphics/UI/FLTK/LowLevel/Fl_Types.chs:403:22 in fltkh_Cx8029B5VOwKjdT0OwMERC:Graphics.UI.FLTK.LowLevel.Fl_Types
+  withRef, called at src/Graphics/UI/FLTK/LowLevel/Hierarchy.hs:1652:166 in fltkh_Cx8029B5VOwKjdT0OwMERC:Graphics.UI.FLTK.LowLevel.Hierarchy
+  getLabel, called at src/Main.hs:11:10 in main:Main
+</pre><p>It says that the null pointer was originally detected in the library function <code><a href="Graphics-UI-FLTK-LowLevel-Fl_Types.html#v:toRefPtr">toRefPtr</a></code> function which was called by the library function <code><a href="Graphics-UI-FLTK-LowLevel-Fl_Types.html#v:withRef">withRef</a></code>, which
+ was called by <code><a href="Graphics-UI-FLTK-LowLevel-Hierarchy.html#v:getLabel">getLabel</a></code> on line 11 of 'src/Main.hs'. Notice, however, that the trace stops there. It does not tell you <code><a href="Graphics-UI-FLTK-LowLevel-Hierarchy.html#v:getLabel">getLabel</a></code> was invoked from <code>buttonCb</code>.
+ For a more detailed trace the <code>CallStack</code> implicit parameter needs to be passed to each function in the chain like:</p><pre>buttonCb :: (?loc :: CallStack) =&gt; Ref Button ...
+ ...
+main :: IO ()
+ ...
+</pre></div><h1 id="g:12">API Guide</h1><div class="doc"><h1>Guide to the Haddock Docs</h1><p>Convenient access to the underlying C++ is achieved using typeclasses and
+ type-level programming to emulate classes and subclasses. This approach makes
+ Haddock very unhappy and the generated documentation is frequently unhelpful.
+ For instance, newcomers to this library are urged not to look at
+ <a href="Graphics-UI-FLTK-LowLevel-Dispatch.html">Graphics.UI.FLTK.LowLevel.Dispatch</a> or
+ <a href="Graphics-UI-FLTK-LowLevel-Hierarchy.html">Graphics.UI.FLTK.LowLevel.Hierarchy</a>. The purpose of this guide is to point
+ users in a more useful direction.</p><p>The documentation provided with this API is not yet self-contained and is
+ meant to be used in tandem with the <a href="http://www.fltk.org/doc-1.3/classes.html">C++ documentation</a>.
+ The rest of this document is about how the Haskell
+ functions and datatypes map to the C++ ones.</p><h2>Widget Construction</h2><p>Each widget has its own module all of which are listed
+ below under the <strong>Widgets</strong> heading . Most modules include a function named
+ `&lt;widgetName&gt;New` that returns a reference to that widget. Although the user
+ does not have to deal with raw pointers directly it might help to understand
+ that this reference is a pointer to a void pointer to a C++ object.</p><p>For instance, <code><a href="Graphics-UI-FLTK-LowLevel-Window.html#v:windowNew">windowNew</a></code> creates a <code><a href="Graphics-UI-FLTK-LowLevel-Fl_Types.html#t:Ref">Ref</a></code> <code><a href="Graphics-UI-FLTK-LowLevel-Hierarchy.html#t:Window">Window</a></code> which is a pointer to a
+ C++ object of type <code>Fl_Window</code>, the FLTK class that knows how to draw,
+ display and handle window events.</p><p>This value of type <code><a href="Graphics-UI-FLTK-LowLevel-Fl_Types.html#t:Ref">Ref</a></code> <code><a href="Graphics-UI-FLTK-LowLevel-Hierarchy.html#t:Window">Window</a></code> is then passed along to various functions
+ which, transparent to the user, extract the pointer and pass it to the
+ appropriate <em>Fl_Window</em> instance method.</p><h2>Widget Methods</h2><p>The Haskell functions that bind to the instance methods of an FLTK class are
+ listed under the <strong>Functions</strong> heading in that widget's module. It's worth
+ remembering that these type signatures associated with the functions listed
+ under the <strong>Functions</strong> heading are not the real ones but are artifically
+ generated because they are much more helpful to users. For instance, the
+ actual type of <code><a href="Graphics-UI-FLTK-LowLevel-Hierarchy.html#v:activate">activate</a></code> exposes all the type level arithmetic required so
+ it can be used by subclasses of <code><a href="Graphics-UI-FLTK-LowLevel-Hierarchy.html#t:Widget">Widget</a></code> but is pretty unhelpful as a
+ reference compared to the artificial type under <strong>Functions</strong> heading of
+ <a href="Graphics-UI-FLTK-LowLevel-Widget.html">Graphics.UI.FLTK.LowLevel.Widget</a>.</p><p>Unfortunately to see this more helpful type signature the poor reader has to
+ navigate to the corresponding widget's module, find the <strong>Functions</strong> header
+ and scroll down to the desired function. Haddock, unfortunately, does not
+ support anchors that link to a named point in the page. The author is <em>very</em>
+ open to ideas on how to make this easier.</p><p>Carrying on the previous example from the <strong>Widget Creation</strong> section, the
+ methods on a <code><a href="Graphics-UI-FLTK-LowLevel-Fl_Types.html#t:Ref">Ref</a></code> <code><a href="Graphics-UI-FLTK-LowLevel-Hierarchy.html#t:Window">Window</a></code> widget are documented in
+ <a href="Graphics-UI-FLTK-LowLevel-Window.html">Graphics.UI.FLTK.LowLevel.Window</a> under <strong>Functions</strong>. Each function takes
+ the <code><a href="Graphics-UI-FLTK-LowLevel-Fl_Types.html#t:Ref">Ref</a></code> <code><a href="Graphics-UI-FLTK-LowLevel-Hierarchy.html#t:Window">Window</a></code> reference as its first argument followed by whatever else
+ it needs and delegates it appropriately.</p><p>As this is a low-level binding the Haskell functions are kept as close as
+ possible in name and argument list to the underlying C++. This allows users
+ familiar with the FLTK API to use this library with less learning overhead
+ and it lets newcomers to FLTK take advantage of the already extensive
+ <a href="http://www.fltk.org/doc-1.3/classes.html">C++ documentation</a>.</p><p>Functions are named to make it as easy as possible to find the corresponding
+ C++ function, however there are some naming conventions to keep in mind:</p><ol><li>setters and getters are prefixed with <em>set</em> and <em>get</em> respectively. In
+ C++ both have the same name; the setter takes an argument while the getter
+ does not. Since Haskell does not support overloading this convention is used.</li><li>in many cases C++ uses overloading to provide default values to
+ arguments. Since Haskell does not support overloading, these arguments are
+ <code><a href="../base-4.8.2.0/Data-Maybe.html#t:Maybe">Maybe</a></code> types eg. the <code>hotspot</code> function in
+ <a href="Graphics-UI-FLTK-LowLevel-Window.html">Graphics.UI.FLTK.LowLevel.Window</a>. In other cases where the common use case
+ leaves the default arguments unspecified the binding provides two functions,
+ a longer less-convenient-to-type one that takes the default argument and a
+ short one that does not eg. <code><a href="Graphics-UI-FLTK-LowLevel-Hierarchy.html#v:drawBox">drawBox</a></code> and <code><a href="Graphics-UI-FLTK-LowLevel-Hierarchy.html#v:drawBoxWithBoxtype">drawBoxWithBoxtype</a></code>, also in
+ <a href="Graphics-UI-FLTK-LowLevel-Window.html">Graphics.UI.FLTK.LowLevel.Window</a>.</li><li>error codes are <code><a href="../base-4.8.2.0/Data-Either.html#t:Either">Either</a></code> types</li><li>function arguments which are pointers to be filled are not exposed to the
+ API user. For instance, a common C++ idiom is to return a string by taking a
+ pointer to some initialized but empty chunk of memory and filling it up. The
+ corresponding Haskell function just returns a <code><a href="../base-4.8.2.0/Data-String.html#t:String">String</a></code>.</li></ol><p>It is hoped that until the documentation becomes more self-sustaining the
+ user can use these heuristics (and the type signatures) along with the
+ official FLTK documentation to &quot;guess&quot; what the binding functions do.</p><h2>Widget Hierarchy</h2><p>Every widget module in the API has a <strong>Hierarchy</strong> heading that shows all its parents.</p><p>The design of the API makes all the parent functions transparently available
+ to that widget. This is also the reason why the actual type signatures are so
+ complicated requiring the manual generation of artificial type signatures.</p><p>For instance, the <strong>Functions</strong> section under
+ <a href="Graphics-UI-FLTK-LowLevel-Window.html">Graphics.UI.FLTK.LowLevel.Window</a> shows that a <code><a href="Graphics-UI-FLTK-LowLevel-Fl_Types.html#t:Ref">Ref</a></code> <code><a href="Graphics-UI-FLTK-LowLevel-Hierarchy.html#t:Window">Window</a></code> can be passed
+ to <em>getModal</em> to check if the window is modal, but it can also be passed to
+ <em>children</em> in <a href="Graphics-UI-FLTK-LowLevel-Group.html">Graphics.UI.FLTK.LowLevel.Group</a> which counts up the number of
+ widgets inside the <code><a href="Graphics-UI-FLTK-LowLevel-Hierarchy.html#t:Window">Window</a></code> and <em>getX</em> in <a href="Graphics-UI-FLTK-LowLevel-Widget.html">Graphics.UI.FLTK.LowLevel.Widget</a>
+ which returns the X coordinate of the <code>Window'</code>s top-left hand corner.</p><p>The hierarchy corresponds almost exactly to the underlying C++ class
+ hierarchy so, again, the user is able to take advantage of the
+ <a href="http://www.fltk.org/doc-1.3/classes.html">C++ documentation</a> to use the
+ binding API.</p><h3>Overriding C++ methods</h3><p>The binding API provides a <em>very</em> limited form of inheritance by allowing the
+ user to provide Haskell implementations of certain key methods on a small set
+ of classes. Which methods and which classes were determined by original
+ author of this library based on a casual look at FLTK code in the wild and
+ what was required for porting the demoes. If there is a pressing need for
+ more methods or classes, please contact the maintainer.</p><p>When providing custom methods the object constructor is no longer
+ `&lt;widgetName&gt;New` but `&lt;widgetName&gt;Custom`, which, in addition the parameters
+ taken by `&lt;widgetName&gt;New` also takes records of Haskell functions which are
+ then passed to the C++ side.</p><p>Much like a callback, the Haskell functions are passed as function pointers
+ to the C++ side and called whenever the event loop deems appropriate. Unlike
+ callbacks, they can be set only on object instantiation.</p><p>An example of this is <a href="Graphics-UI-FLTK-LowLevel-Widget.html">Graphics.UI.FLTK.LowLevel.Widget</a> which, since it is a
+ base class for most widgets and doesn't have much functionality of its own,
+ only allows custom construction using <code><a href="Graphics-UI-FLTK-LowLevel-Widget.html#v:widgetCustom">widgetCustom</a></code>. This constructor takes
+ a <code><a href="Graphics-UI-FLTK-LowLevel-Widget.html#t:CustomWidgetFuncs">CustomWidgetFuncs</a></code> datatype which is a record of functions which tells a
+ <a href="Graphics-UI-FLTK-LowLevel-Widget.html">Graphics.UI.FLTK.LowLevel.Widget</a> how to handle events and draw, resize and
+ display itself.</p><p>Again <a href="Graphics-UI-FLTK-LowLevel-Window.html">Graphics.UI.FLTK.LowLevel.Window</a> can be used a motivating example.
+ Its custom constructor <code><a href="Graphics-UI-FLTK-LowLevel-Window.html#v:windowCustom">windowCustom</a></code>, in fact, takes two records. A
+ <code><a href="Graphics-UI-FLTK-LowLevel-Widget.html#t:CustomWidgetFuncs">CustomWidgetFuncs</a></code> which allows the user to override methods in its
+ <a href="Graphics-UI-FLTK-LowLevel-Widget.html">Graphics.UI.FLTK.LowLevel.Widget</a> parent class and also a
+ <code><a href="Graphics-UI-FLTK-LowLevel-Window.html#t:CustomWindowFuncs">CustomWindowFuncs</a></code> record which allows the user to override <em>flush</em>, a
+ method on the Window class which tells the window how to force a redraw. For
+ example, the demo <em>src/Examples/doublebuffer.hs</em> (which corresponds to the
+ executable 'ftlkhs-doublebuffer') tells both windows how to draw themselves
+ in a Haskell function that uses low-level FLTK drawing routines by overriding
+ the draw function of their <a href="Graphics-UI-FLTK-LowLevel-Widget.html">Graphics.UI.FLTK.LowLevel.Widget</a> parent.</p><p>Every widget that supports customizing also provides a default function
+ record that can be passed to the constructor. For example,
+ <a href="Graphics-UI-FLTK-LowLevel-Widget.html">Graphics.UI.FLTK.LowLevel.Widget</a> provides <code><a href="Graphics-UI-FLTK-LowLevel-Widget.html#v:defaultCustomWidgetFuncs">defaultCustomWidgetFuncs</a></code> and
+ <a href="Graphics-UI-FLTK-LowLevel-Window.html">Graphics.UI.FLTK.LowLevel.Window</a> has <code><a href="Graphics-UI-FLTK-LowLevel-Window.html#v:defaultCustomWindowFuncs">defaultCustomWindowFuncs</a></code>. In the
+ demo mentioned above the <code><a href="Graphics-UI-FLTK-LowLevel-SingleWindow.html#v:singleWindowCustom">singleWindowCustom</a></code> function is given
+ <code><a href="Graphics-UI-FLTK-LowLevel-Widget.html#v:defaultCustomWidgetFuncs">defaultCustomWidgetFuncs</a></code> but with an overridden <code>drawCustom</code>.</p><p>Another case where customization comes up a lot is when using
+ <a href="Graphics-UI-FLTK-LowLevel-Table.html">Graphics.UI.FLTK.LowLevel.Table</a> which is a low-level table widget that
+ needs to be told, for example, how to draw its cells. The demo
+ <em>src/Examples/table-simple.hs</em> (corresponding to the executable
+ 'fltkhs-table-simple') shows this in action.</p><p>Hopefully the demos just mentioned and others included with this library show
+ that even though customizing is limited it is possible to do a lot.</p><p>Additionally for most customizable functions a widget provides a
+ corresponding function that calls the default C++ implementation as the
+ function name suffixed with &quot;Super&quot;. For instance, the user can provide a
+ custom implementation of <em>handle</em> on <a href="Graphics-UI-FLTK-LowLevel-Window.html">Graphics.UI.FLTK.LowLevel.Window</a> via
+ the constructor and every call to <em>handle</em> invokes that implementation, but
+ the user can also call <em>handleSuper</em> to get at the default C++
+ implementation. This comes in handy when the custom function is just setting
+ up variables or logging and wants underlying implementation to take over at
+ some point.</p><p><strong>Warning</strong>: since calls to the default implementation of the function,
+ <em>handleSuper</em>, for example, are available to the widget they are
+ automatically available to all subclasses of the widget. The author
+ acknowledges this is a confusing aspect of the library's design but hopes the
+ benefit of being able to get at the default implementation out-weighs the
+ trap the user might fall into. If this becomes a pervasive problem the author
+ is open to removing this functionality.</p></div><h1 id="g:13">Slow Compilation Issues</h1><div class="doc"><p>As described above, the API emulates multiple dispatch using type-level
+ programming, closed type families and typeclasses. While this is makes for a
+ nice API it has also
+ slowed down compilation of executables much more than expected.</p><p>To clarify the time taken to compile the library itself has not changed, but
+ applications that use the library to create executables are taking a lot
+ longer to compile. To further emphasize, there does not appear to be any
+ runtime performance issues. This is only a compile time problem.</p><p>To preserve the user's and the author's sanity a flag <code>fastCompile</code> has been
+ introduced to the <a href="http://hackage.haskell.org/package/fltkhs-demos">fltkhs-demos</a> and
+ to the <a href="http://hackage.haskell.org/package/fltkhs-fluid-demos">fltkhs-fluid-demos</a>.
+ This flag which tells the compiler to skip the specialising step when
+ compiling executables, dramatically decreases compile time but also bloats
+ the resulting executable size and probably makes runtime performance much
+ slower. In this package and <a href="http://hackage.haskell.org/package/fltkhs-fluid-demos">fltkhs-fluid-demos</a>
+ it is enabled by default, since the executables are just
+ demos that are not meant to show off performance. To disable this flag, tell
+ Stack to ignore it during the <code>build</code> step:</p><pre>&gt; stack build --flag fltkhs-demos:-fastCompile
+</pre><p>In the <a href="https://github.com/deech/fltkhs-hello-world">fltkhs</a> and the
+ <a href="https://github.com/deech/fltkhs-fluid-hello-world">fltkhs-fluid</a> project
+ skeletons this flag is <em>disabled</em> by default to provide the best runtime
+ performance. To enable the flag for a smoother development workflow, tell
+ Stack to enable it during the <code>configure</code> step:</p><pre>&gt; stack build --flag fltkhs-hello-world:fastCompile
+</pre></div><h1 id="g:14">Running in the REPL</h1><div class="doc"><p>The recommended way to load FLTKHS app into GHCi is the use the
+ `stack-repl.yaml` that comes bundled with the
+ <a href="http://github.com/deech/fltkhs-hello-world">FLTKHS project skeleton</a>. The
+ reasons are outlined in the &quot;GHCi (All Users)&quot; subsection of <a href="Obstacles.html">Obstacles</a> above.</p><p>The REPL in the skeleton, for example, be run with:</p><pre>&gt; STACK_YAML=stack-repl.yaml stack setup --upgrade-cabal
+&gt; STACK_YAML=stack-repl.yaml stack ghci fltkhs-hello-world:exe:fltkhs-hello-world
+</pre><p>The '--upgrade-cabal' flag above tells GHC to use the version in
+ 'stack-repl.yaml' (7.8.4) but upgrade the Cabal to 1.2.2.</p></div><h1 id="g:15">Core Types</h1><div class="top"><p class="src">module <a href="Graphics-UI-FLTK-LowLevel-Fl_Types.html">Graphics.UI.FLTK.LowLevel.Fl_Types</a></p></div><h1 id="g:16">Widgets</h1><div class="top"><p class="src">module <a href="Graphics-UI-FLTK-LowLevel-Adjuster.html">Graphics.UI.FLTK.LowLevel.Adjuster</a></p></div><div class="top"><p class="src">module <a href="Graphics-UI-FLTK-LowLevel-Bitmap.html">Graphics.UI.FLTK.LowLevel.Bitmap</a></p></div><div class="top"><p class="src">module <a href="Graphics-UI-FLTK-LowLevel-Box.html">Graphics.UI.FLTK.LowLevel.Box</a></p></div><div class="top"><p class="src">module <a href="Graphics-UI-FLTK-LowLevel-Browser.html">Graphics.UI.FLTK.LowLevel.Browser</a></p></div><div class="top"><p class="src">module <a href="Graphics-UI-FLTK-LowLevel-Button.html">Graphics.UI.FLTK.LowLevel.Button</a></p></div><div class="top"><p class="src">module <a href="Graphics-UI-FLTK-LowLevel-CheckButton.html">Graphics.UI.FLTK.LowLevel.CheckButton</a></p></div><div class="top"><p class="src">module <a href="Graphics-UI-FLTK-LowLevel-Choice.html">Graphics.UI.FLTK.LowLevel.Choice</a></p></div><div class="top"><p class="src">module <a href="Graphics-UI-FLTK-LowLevel-Clock.html">Graphics.UI.FLTK.LowLevel.Clock</a></p></div><div class="top"><p class="src">module <a href="Graphics-UI-FLTK-LowLevel-CopySurface.html">Graphics.UI.FLTK.LowLevel.CopySurface</a></p></div><div class="top"><p class="src">module <a href="Graphics-UI-FLTK-LowLevel-Counter.html">Graphics.UI.FLTK.LowLevel.Counter</a></p></div><div class="top"><p class="src">module <a href="Graphics-UI-FLTK-LowLevel-Dial.html">Graphics.UI.FLTK.LowLevel.Dial</a></p></div><div class="top"><p class="src">module <a href="Graphics-UI-FLTK-LowLevel-DoubleWindow.html">Graphics.UI.FLTK.LowLevel.DoubleWindow</a></p></div><div class="top"><p class="src">module <a href="Graphics-UI-FLTK-LowLevel-Draw.html">Graphics.UI.FLTK.LowLevel.Draw</a></p></div><div class="top"><p class="src">module <a href="Graphics-UI-FLTK-LowLevel-FillDial.html">Graphics.UI.FLTK.LowLevel.FillDial</a></p></div><div class="top"><p class="src">module <a href="Graphics-UI-FLTK-LowLevel-FillSlider.html">Graphics.UI.FLTK.LowLevel.FillSlider</a></p></div><div class="top"><p class="src">module <a href="Graphics-UI-FLTK-LowLevel-GlWindow.html">Graphics.UI.FLTK.LowLevel.GlWindow</a></p></div><div class="top"><p class="src">module <a href="Graphics-UI-FLTK-LowLevel-Group.html">Graphics.UI.FLTK.LowLevel.Group</a></p></div><div class="top"><p class="src">module <a href="Graphics-UI-FLTK-LowLevel-HorFillSlider.html">Graphics.UI.FLTK.LowLevel.HorFillSlider</a></p></div><div class="top"><p class="src">module <a href="Graphics-UI-FLTK-LowLevel-HorNiceSlider.html">Graphics.UI.FLTK.LowLevel.HorNiceSlider</a></p></div><div class="top"><p class="src">module <a href="Graphics-UI-FLTK-LowLevel-HorSlider.html">Graphics.UI.FLTK.LowLevel.HorSlider</a></p></div><div class="top"><p class="src">module <a href="Graphics-UI-FLTK-LowLevel-HorValueSlider.html">Graphics.UI.FLTK.LowLevel.HorValueSlider</a></p></div><div class="top"><p class="src">module <a href="Graphics-UI-FLTK-LowLevel-Image.html">Graphics.UI.FLTK.LowLevel.Image</a></p></div><div class="top"><p class="src">module <a href="Graphics-UI-FLTK-LowLevel-ImageSurface.html">Graphics.UI.FLTK.LowLevel.ImageSurface</a></p></div><div class="top"><p class="src">module <a href="Graphics-UI-FLTK-LowLevel-Input.html">Graphics.UI.FLTK.LowLevel.Input</a></p></div><div class="top"><p class="src">module <a href="Graphics-UI-FLTK-LowLevel-Output.html">Graphics.UI.FLTK.LowLevel.Output</a></p></div><div class="top"><p class="src">module <a href="Graphics-UI-FLTK-LowLevel-IntInput.html">Graphics.UI.FLTK.LowLevel.IntInput</a></p></div><div class="top"><p class="src">module <a href="Graphics-UI-FLTK-LowLevel-FileInput.html">Graphics.UI.FLTK.LowLevel.FileInput</a></p></div><div class="top"><p class="src">module <a href="Graphics-UI-FLTK-LowLevel-LightButton.html">Graphics.UI.FLTK.LowLevel.LightButton</a></p></div><div class="top"><p class="src">module <a href="Graphics-UI-FLTK-LowLevel-LineDial.html">Graphics.UI.FLTK.LowLevel.LineDial</a></p></div><div class="top"><p class="src">module <a href="Graphics-UI-FLTK-LowLevel-MenuPrim.html">Graphics.UI.FLTK.LowLevel.MenuPrim</a></p></div><div class="top"><p class="src">module <a href="Graphics-UI-FLTK-LowLevel-MenuButton.html">Graphics.UI.FLTK.LowLevel.MenuButton</a></p></div><div class="top"><p class="src">module <a href="Graphics-UI-FLTK-LowLevel-MenuItem.html">Graphics.UI.FLTK.LowLevel.MenuItem</a></p></div><div class="top"><p class="src">module <a href="Graphics-UI-FLTK-LowLevel-NiceSlider.html">Graphics.UI.FLTK.LowLevel.NiceSlider</a></p></div><div class="top"><p class="src">module <a href="Graphics-UI-FLTK-LowLevel-OverlayWindow.html">Graphics.UI.FLTK.LowLevel.OverlayWindow</a></p></div><div class="top"><p class="src">module <a href="Graphics-UI-FLTK-LowLevel-Pixmap.html">Graphics.UI.FLTK.LowLevel.Pixmap</a></p></div><div class="top"><p class="src">module <a href="Graphics-UI-FLTK-LowLevel-Positioner.html">Graphics.UI.FLTK.LowLevel.Positioner</a></p></div><div class="top"><p class="src">module <a href="Graphics-UI-FLTK-LowLevel-Progress.html">Graphics.UI.FLTK.LowLevel.Progress</a></p></div><div class="top"><p class="src">module <a href="Graphics-UI-FLTK-LowLevel-RadioLightButton.html">Graphics.UI.FLTK.LowLevel.RadioLightButton</a></p></div><div class="top"><p class="src">module <a href="Graphics-UI-FLTK-LowLevel-RepeatButton.html">Graphics.UI.FLTK.LowLevel.RepeatButton</a></p></div><div class="top"><p class="src">module <a href="Graphics-UI-FLTK-LowLevel-ReturnButton.html">Graphics.UI.FLTK.LowLevel.ReturnButton</a></p></div><div class="top"><p class="src">module <a href="Graphics-UI-FLTK-LowLevel-Roller.html">Graphics.UI.FLTK.LowLevel.Roller</a></p></div><div class="top"><p class="src">module <a href="Graphics-UI-FLTK-LowLevel-RoundButton.html">Graphics.UI.FLTK.LowLevel.RoundButton</a></p></div><div class="top"><p class="src">module <a href="Graphics-UI-FLTK-LowLevel-Scrollbar.html">Graphics.UI.FLTK.LowLevel.Scrollbar</a></p></div><div class="top"><p class="src">module <a href="Graphics-UI-FLTK-LowLevel-SelectBrowser.html">Graphics.UI.FLTK.LowLevel.SelectBrowser</a></p></div><div class="top"><p class="src">module <a href="Graphics-UI-FLTK-LowLevel-SimpleCounter.html">Graphics.UI.FLTK.LowLevel.SimpleCounter</a></p></div><div class="top"><p class="src">module <a href="Graphics-UI-FLTK-LowLevel-SingleWindow.html">Graphics.UI.FLTK.LowLevel.SingleWindow</a></p></div><div class="top"><p class="src">module <a href="Graphics-UI-FLTK-LowLevel-Slider.html">Graphics.UI.FLTK.LowLevel.Slider</a></p></div><div class="top"><p class="src">module <a href="Graphics-UI-FLTK-LowLevel-Spinner.html">Graphics.UI.FLTK.LowLevel.Spinner</a></p></div><div class="top"><p class="src">module <a href="Graphics-UI-FLTK-LowLevel-MenuBar.html">Graphics.UI.FLTK.LowLevel.MenuBar</a></p></div><div class="top"><p class="src">module <a href="Graphics-UI-FLTK-LowLevel-SysMenuBar.html">Graphics.UI.FLTK.LowLevel.SysMenuBar</a></p></div><div class="top"><p class="src">module <a href="Graphics-UI-FLTK-LowLevel-Tabs.html">Graphics.UI.FLTK.LowLevel.Tabs</a></p></div><div class="top"><p class="src">module <a href="Graphics-UI-FLTK-LowLevel-Table.html">Graphics.UI.FLTK.LowLevel.Table</a></p></div><div class="top"><p class="src">module <a href="Graphics-UI-FLTK-LowLevel-TableRow.html">Graphics.UI.FLTK.LowLevel.TableRow</a></p></div><div class="top"><p class="src">module <a href="Graphics-UI-FLTK-LowLevel-Timer.html">Graphics.UI.FLTK.LowLevel.Timer</a></p></div><div class="top"><p class="src">module <a href="Graphics-UI-FLTK-LowLevel-ToggleButton.html">Graphics.UI.FLTK.LowLevel.ToggleButton</a></p></div><div class="top"><p class="src">module <a href="Graphics-UI-FLTK-LowLevel-Tree.html">Graphics.UI.FLTK.LowLevel.Tree</a></p></div><div class="top"><p class="src">module <a href="Graphics-UI-FLTK-LowLevel-TreeItem.html">Graphics.UI.FLTK.LowLevel.TreeItem</a></p></div><div class="top"><p class="src">module <a href="Graphics-UI-FLTK-LowLevel-TreePrefs.html">Graphics.UI.FLTK.LowLevel.TreePrefs</a></p></div><div class="top"><p class="src">module <a href="Graphics-UI-FLTK-LowLevel-Valuator.html">Graphics.UI.FLTK.LowLevel.Valuator</a></p></div><div class="top"><p class="src">module <a href="Graphics-UI-FLTK-LowLevel-ValueInput.html">Graphics.UI.FLTK.LowLevel.ValueInput</a></p></div><div class="top"><p class="src">module <a href="Graphics-UI-FLTK-LowLevel-ValueOutput.html">Graphics.UI.FLTK.LowLevel.ValueOutput</a></p></div><div class="top"><p class="src">module <a href="Graphics-UI-FLTK-LowLevel-ValueSlider.html">Graphics.UI.FLTK.LowLevel.ValueSlider</a></p></div><div class="top"><p class="src">module <a href="Graphics-UI-FLTK-LowLevel-Widget.html">Graphics.UI.FLTK.LowLevel.Widget</a></p></div><div class="top"><p class="src">module <a href="Graphics-UI-FLTK-LowLevel-Window.html">Graphics.UI.FLTK.LowLevel.Window</a></p></div><div class="top"><p class="src">module <a href="Graphics-UI-FLTK-LowLevel-Wizard.html">Graphics.UI.FLTK.LowLevel.Wizard</a></p></div><div class="top"><p class="src">module <a href="Graphics-UI-FLTK-LowLevel-TextSelection.html">Graphics.UI.FLTK.LowLevel.TextSelection</a></p></div><div class="top"><p class="src">module <a href="Graphics-UI-FLTK-LowLevel-TextBuffer.html">Graphics.UI.FLTK.LowLevel.TextBuffer</a></p></div><div class="top"><p class="src">module <a href="Graphics-UI-FLTK-LowLevel-TextDisplay.html">Graphics.UI.FLTK.LowLevel.TextDisplay</a></p></div><div class="top"><p class="src">module <a href="Graphics-UI-FLTK-LowLevel-TextEditor.html">Graphics.UI.FLTK.LowLevel.TextEditor</a></p></div><div class="top"><p class="src">module <a href="Graphics-UI-FLTK-LowLevel-NativeFileChooser.html">Graphics.UI.FLTK.LowLevel.NativeFileChooser</a></p></div><div class="top"><p class="src">module <a href="Graphics-UI-FLTK-LowLevel-Tile.html">Graphics.UI.FLTK.LowLevel.Tile</a></p></div><div class="top"><p class="src">module <a href="Graphics-UI-FLTK-LowLevel-Pack.html">Graphics.UI.FLTK.LowLevel.Pack</a></p></div><div class="top"><p class="src">module <a href="Graphics-UI-FLTK-LowLevel-Scrolled.html">Graphics.UI.FLTK.LowLevel.Scrolled</a></p></div><div class="top"><p class="src">module <a href="Graphics-UI-FLTK-LowLevel-Ask.html">Graphics.UI.FLTK.LowLevel.Ask</a></p></div><div class="top"><p class="src">module <a href="Graphics-UI-FLTK-LowLevel-ColorChooser.html">Graphics.UI.FLTK.LowLevel.ColorChooser</a></p></div><div class="top"><p class="src">module <a href="Graphics-UI-FLTK-LowLevel-FileBrowser.html">Graphics.UI.FLTK.LowLevel.FileBrowser</a></p></div><div class="top"><p class="src">module <a href="Graphics-UI-FLTK-LowLevel-JPEGImage.html">Graphics.UI.FLTK.LowLevel.JPEGImage</a></p></div><div class="top"><p class="src">module <a href="Graphics-UI-FLTK-LowLevel-RGBImage.html">Graphics.UI.FLTK.LowLevel.RGBImage</a></p></div><div class="top"><p class="src">module <a href="Graphics-UI-FLTK-LowLevel-BMPImage.html">Graphics.UI.FLTK.LowLevel.BMPImage</a></p></div><div class="top"><p class="src">module <a href="Graphics-UI-FLTK-LowLevel-GIFImage.html">Graphics.UI.FLTK.LowLevel.GIFImage</a></p></div><div class="top"><p class="src">module <a href="Graphics-UI-FLTK-LowLevel-XBMImage.html">Graphics.UI.FLTK.LowLevel.XBMImage</a></p></div><div class="top"><p class="src">module <a href="Graphics-UI-FLTK-LowLevel-XPMImage.html">Graphics.UI.FLTK.LowLevel.XPMImage</a></p></div><div class="top"><p class="src">module <a href="Graphics-UI-FLTK-LowLevel-PNGImage.html">Graphics.UI.FLTK.LowLevel.PNGImage</a></p></div><div class="top"><p class="src">module <a href="Graphics-UI-FLTK-LowLevel-PNMImage.html">Graphics.UI.FLTK.LowLevel.PNMImage</a></p></div><h1 id="g:17">Machinery for static dispatch</h1><div class="top"><p class="src">module <a href="Graphics-UI-FLTK-LowLevel-Dispatch.html">Graphics.UI.FLTK.LowLevel.Dispatch</a></p></div><h1 id="g:18">Association of widgets and functions</h1><div class="top"><p class="src">module <a href="Graphics-UI-FLTK-LowLevel-Hierarchy.html">Graphics.UI.FLTK.LowLevel.Hierarchy</a></p></div></div></div><div id="footer"><p>Produced by <a href="http://www.haskell.org/haddock/">Haddock</a> version 2.16.1</p></div></body></html>
